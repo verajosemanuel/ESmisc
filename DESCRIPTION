@@ -1,0 +1,22 @@
+Package: ESmisc
+Type: Package
+Title: Misc Functions For Spanish specific Data
+Version: 0.1.0
+Date: 2017-05-24
+Author: person( "Jose Manuel","Vera Oteo", email = "vera.josemanuel@gmail.com",
+                role = c("aut","cre")
+URL: https://github.com/verajosemanuel
+BugReports: https://github.com/verajosemanuel/ESmisc
+Maintainer: <vera.josemanuel@gmail.com>
+Depends: R (>= 3.1.0)
+Imports: magrittr
+Description: Character (words) to numerical translation in Euros from spanish 
+    spelled monetary quantities. Text must be previously cleaned & removed 
+    extraneous words or symbols. Cents must be removed. Quantities MUST be 
+    written in a correct Spanish (this is not a grammar tool). The upper limit
+    is up to the millions range. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
+
