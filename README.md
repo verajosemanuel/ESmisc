@@ -12,8 +12,8 @@ First provided function is **to_number()**, a quick & dirty function to translat
 Given a numerical quantity spelled in spanish **to_number** translates it to integer.
 
 ```
-to_number("dosmil ciento trentayocho")
-[1] 2138
+to_number("dosmil ciento cuarenta y ocho")
+[1] 2148
 ```
 This function can be used on dataframes with lapply. Try the provided example dataframe (cantidades).
 ```
