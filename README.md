@@ -22,7 +22,7 @@ cantidades$var3 <- lapply(cantidades$var2, to_number)
 ### Requirements: 
 - magrittr must be installed
 - Text must be previously cleaned & removed extraneous words or symbols. 
-- Cents must be removed. (in my TO DO list)
+- Cents must be removed. (in my TO DO list to overcone this limit)
 - Quantities MUST be written in a correct Spanish (this is not a grammar tool).
 - The upper limit is up to the millions range. 
 
