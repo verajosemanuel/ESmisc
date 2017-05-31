@@ -9,7 +9,7 @@ geocode_cadastral(x, parse_files)
 \arguments{
 \item{x}{A valid spanish cadastral reference.}
 
-\item{parse_files}{boolean default FALSE. Set TRUE if source are KML files.}
+\item{parse_files}{bool. Default to FALSE. Set TRUE if source are KML files.}
 }
 \value{
 A string for longitude/latitude if found. NA if not found.

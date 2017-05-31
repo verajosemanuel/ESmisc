@@ -24,8 +24,14 @@
 #'
 #' cadastral_references$new <- lapply(cadastral_references$cadref1, geocode_cadastral)
 #'
-#' ## maybe source is folder. A loop is needed to process each kml file ##
+#' ## separate previously generated "new" data into columns usign tidyr
 #'
+#' library(tidyr)
+#' separate(cadastral_references, new, into = c('longitude','latitude'), sep = "," )
+#'
+#' ## source is folder. A loop is needed to process each kml file ##
+#'
+#' \dontrun{
 #' files <- list.files("folder", full.names = T)
 #'
 #' for (f in files) {
@@ -35,5 +41,5 @@
 #'
 #'# separate lat/lon into columns if you prefer using tidyr
 #' d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
-#'
+#'}
 "cadastral_references"

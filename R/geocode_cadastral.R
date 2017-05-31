@@ -4,7 +4,7 @@
 #'
 #' @keywords geocoding, latitude, longitude, cadastre, cadastral reference.
 #' @param x A valid spanish cadastral reference.
-#' @param parse_files boolean default FALSE. Set TRUE if source are KML files.
+#' @param parse_files bool. Default to FALSE. Set TRUE if source are KML files.
 #' @return A string for longitude/latitude if found. NA if not found.
 #' @section Warning: You may be banned if many requests in short time are made.
 #' @export
@@ -17,10 +17,16 @@
 #'
 #' ## Use lapply to geocode cadastral references from dataframe columns.
 #'
-#' df$coords <- lapply(df$cadref, geocode_cadastral)
+#' cadastral_references$new <- lapply(cadastral_references$cadref1, geocode_cadastral)
+#'
+#' ## separate previously generated "new" data into columns usign tidyr
+#'
+#' library(tidyr)
+#' separate(cadastral_references, new, into = c('longitude','latitude'), sep = "," )
 #'
 #' ## source is folder. A loop is needed to process each kml file ##
 #'
+#' \dontrun{
 #' files <- list.files("folder", full.names = T)
 #'
 #' for (f in files) {
@@ -30,10 +36,15 @@
 #'
 #'# separate lat/lon into columns if you prefer using tidyr
 #' d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
-#'
+#'}
 
 
 geocode_cadastral <- function(x, parse_files) {
+
+  if (missing(parse_files)) {
+    parse_files <- FALSE
+  }
+
   if (!require("magrittr", quietly = TRUE)) {
     stop("magrittr needed for this function to work. Please install it.",
          call. = FALSE)
