@@ -30,10 +30,16 @@ geocode_cadastral("0636105UF3403N", parse_files = FALSE)
 
 ## Use lapply to geocode cadastral references from dataframe columns.
 
-df$coords <- lapply(df$cadref, geocode_cadastral)
+cadastral_references$new <- lapply(cadastral_references$cadref1, geocode_cadastral)
+
+## separate previously generated "new" data into columns usign tidyr
+
+library(tidyr)
+separate(cadastral_references, new, into = c('longitude','latitude'), sep = "," )
 
 ## source is folder. A loop is needed to process each kml file ##
 
+\dontrun{
 files <- list.files("folder", full.names = T)
 
 for (f in files) {
@@ -43,7 +49,7 @@ for (f in files) {
 
 # separate lat/lon into columns if you prefer using tidyr
 d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
-
+}
 }
 \keyword{cadastral}
 \keyword{cadastre,}
