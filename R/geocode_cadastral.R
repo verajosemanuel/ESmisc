@@ -2,9 +2,11 @@
 #'
 #' Get longitude/latitude from valid cadastral ref. or kml files from catastro.
 #'
-#' @keywords geocoding, latitude, longitude, cadastre, cadastral reference
+#' @keywords geocoding, latitude, longitude, cadastre, cadastral reference.
 #' @param x A valid spanish cadastral reference.
-#' @param parse_files boolean. Set to TRUE if source are KLM files from catastro.
+#' @param parse_files boolean default FALSE. Set TRUE if source are KML files.
+#' @return A string for longitude/latitude if found. NA if not found.
+#' @section Warning: You may be banned if many requests in short time are made.
 #' @export
 #' @examples
 #' ## source is cadastral reference number ##
@@ -13,7 +15,11 @@
 #'
 #' > "36.5209422288168,-4.89298751473745"
 #'
-#' ## source is folder. A loop is needed to process each klm file ##
+#' ## Use lapply to geocode cadastral references from dataframe columns.
+#'
+#' df$coords <- lapply(df$cadref, geocode_cadastral)
+#'
+#' ## source is folder. A loop is needed to process each kml file ##
 #'
 #' files <- list.files("folder", full.names = T)
 #'

@@ -9,28 +9,39 @@ geocode_cadastral(x, parse_files)
 \arguments{
 \item{x}{A valid spanish cadastral reference.}
 
-\item{parse_files}{boolean. Set to TRUE if source are KLM files from catastro.}
+\item{parse_files}{boolean default FALSE. Set TRUE if source are KML files.}
+}
+\value{
+A string for longitude/latitude if found. NA if not found.
 }
 \description{
 Get longitude/latitude from valid cadastral ref. or kml files from catastro.
 }
+\section{Warning}{
+ You may be banned if many requests in short time are made.
+}
+
 \examples{
-## cadastral reference number as source data ##
+## source is cadastral reference number ##
 
 geocode_cadastral("0636105UF3403N", parse_files = FALSE)
 
 > "36.5209422288168,-4.89298751473745"
 
-## folder as source data. Process each klm file ##
+## Use lapply to geocode cadastral references from dataframe columns.
+
+df$coords <- lapply(df$cadref, geocode_cadastral)
+
+## source is folder. A loop is needed to process each kml file ##
 
 files <- list.files("folder", full.names = T)
 
 for (f in files) {
  coords <- geocode_cadastral(f, parse_files = TRUE)
- d <- as.data.frame(rbind(df , as.data.frame(coords, stringsAsFactors = F )))
+ d <- as.data.frame(rbind(d , as.data.frame(coords, stringsAsFactors = F )))
 }
 
-# separate lat/lon into columns
+# separate lat/lon into columns if you prefer using tidyr
 d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 
 }
@@ -39,4 +50,4 @@ d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 \keyword{geocoding,}
 \keyword{latitude,}
 \keyword{longitude,}
-\keyword{reference}
+\keyword{reference.}
