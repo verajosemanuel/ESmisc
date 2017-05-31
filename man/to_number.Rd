@@ -2,7 +2,7 @@
 % Please edit documentation in R/to_number.R
 \name{to_number}
 \alias{to_number}
-\title{to_number spanish spelled quantities}
+\title{translate spanish spelled quantities into their integer counterparts.}
 \usage{
 to_number(x)
 }

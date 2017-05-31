@@ -1,4 +1,4 @@
-#' to_number spanish spelled quantities
+#' translate spanish spelled quantities into their integer counterparts.
 #'
 #' Allows you to translate to integer numerical words spelled in spanish.
 #' Text must be previously cleaned & removed extraneous words or symbols

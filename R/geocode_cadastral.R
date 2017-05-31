@@ -1,0 +1,71 @@
+#' geocode by longitude and latitude from cadastral references.
+#'
+#' Get longitude/latitude from valid cadastral ref. or kml files from catastro.
+#'
+#' @keywords geocoding, latitude, longitude, cadastre, cadastral reference
+#' @param x A valid spanish cadastral reference.
+#' @param parse_files boolean. Set to TRUE if source are KLM files from catastro.
+#' @export
+#' @examples
+#' ## source is cadastral reference number ##
+#'
+#' geocode_cadastral("0636105UF3403N", parse_files = FALSE)
+#'
+#' > "36.5209422288168,-4.89298751473745"
+#'
+#' ## source is folder. A loop is needed to process each klm file ##
+#'
+#' files <- list.files("folder", full.names = T)
+#'
+#' for (f in files) {
+#'  coords <- geocode_cadastral(f, parse_files = TRUE)
+#'  d <- as.data.frame(rbind(df , as.data.frame(coords, stringsAsFactors = F )))
+#' }
+#'
+#'# separate lat/lon into columns
+#' d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
+#'
+
+
+geocode_cadastral <- function(x, parse_files) {
+  if (!require("magrittr", quietly = TRUE)) {
+    stop("magrittr needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+
+  if (!require("xml2", quietly = TRUE)) {
+    stop("xml2 needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+
+
+  if (parse_files) {
+
+    con <- file(x, "rb")
+
+  } else {
+
+    con <-
+      paste0(
+        "http://ovc.catastro.meh.es/Cartografia/WMS/BuscarParcelaGoogle.aspx?RefCat=",
+        x
+      )
+    Sys.sleep(2)
+
+  }
+
+  coords <- read_xml(con) %>%
+    sub("kml xmlns", "kml xmlns:X", .) %>%
+    as_xml_document() %>%
+    xml_find_all("//Point/coordinates") %>%
+    xml_text() %>%
+    gsub('.{2}$', '', .)
+
+  if (length(coords) == 0) coords <- NA
+
+  if (parse_files) close(con)
+
+  return(coords)
+
+}
+
