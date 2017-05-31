@@ -15,13 +15,13 @@ geocode_cadastral(x, parse_files)
 Get longitude/latitude from valid cadastral ref. or kml files from catastro.
 }
 \examples{
-## source is cadastral reference number ##
+## cadastral reference number as source data ##
 
 geocode_cadastral("0636105UF3403N", parse_files = FALSE)
 
 > "36.5209422288168,-4.89298751473745"
 
-## source is folder. A loop is needed to process each klm file ##
+## folder as source data. Process each klm file ##
 
 files <- list.files("folder", full.names = T)
 
