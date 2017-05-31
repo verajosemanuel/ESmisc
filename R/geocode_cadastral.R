@@ -19,10 +19,10 @@
 #'
 #' for (f in files) {
 #'  coords <- geocode_cadastral(f, parse_files = TRUE)
-#'  d <- as.data.frame(rbind(df , as.data.frame(coords, stringsAsFactors = F )))
+#'  d <- as.data.frame(rbind(d , as.data.frame(coords, stringsAsFactors = F )))
 #' }
 #'
-#'# separate lat/lon into columns
+#'# separate lat/lon into columns if you prefer using tidyr
 #' d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 #'
 

@@ -10,7 +10,7 @@ There's some special data in spain that's not addressed by any R package or func
 This package is my humble (and objectionable) attempt of helping programmers working with this kind of data.
 
 ### to_number() ###
-**to_number()** is a quick & dirty function to translate spanish spelled monetary quantities to their numerical counterparts.
+**to_number()** is a quick & dirty function to translate spanish spelled monetary quantities into their numerical counterparts.
 Given a numerical quantity spelled in spanish **to_number** translates it to integer.
 
 ```
@@ -38,13 +38,12 @@ geocode_cadastral("0636105UF3403N", parse_files = FALSE)
 
  for (f in files) {
   coords <- geocode_cadastral(f, parse_files = TRUE)
-  d <- as.data.frame(rbind(df , as.data.frame(coords, stringsAsFactors = F )))
+  df <- as.data.frame(rbind(df , as.data.frame(coords, stringsAsFactors = F )))
  }
 
 # separate lat/lon into columns ---------
 
-
- d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
+ df <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 ```
 
 
