@@ -10,9 +10,9 @@
 #' @export
 #' @examples
 #' ## source is cadastral reference number ##
-#'
+#' \dontrun{
 #' geocode_cadastral("0636105UF3403N", parse_files = FALSE)
-#'
+#'}
 #' "36.5209422288168,-4.89298751473745"
 #'
 #' ## Use lapply to geocode cadastral references from dataframe columns.
