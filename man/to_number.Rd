@@ -18,7 +18,7 @@ The upper limit is up to the millions range. Cents must be removed.
 \examples{
 to_number("mil trescientos noventa y dos")
 
-> 1392
+1392
 
 ## Example dataframe is provided: cantidades
 

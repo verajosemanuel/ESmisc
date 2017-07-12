@@ -1,4 +1,4 @@
-# ESmisc: R package for functions on spanish data <img src="images/logo.png" align="right" />
+# ESmisc: R package for functions on spanish data <img src="tools/readme/logo.png" align="right" />
 
 ### Installation: ###
 

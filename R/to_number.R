@@ -11,7 +11,6 @@
 #' @examples
 #' to_number("mil trescientos noventa y dos")
 #'
-#' > 1392
 #'
 #' ## Example dataframe is provided: cantidades
 #'
