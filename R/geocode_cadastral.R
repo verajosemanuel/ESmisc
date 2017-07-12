@@ -45,12 +45,12 @@ geocode_cadastral <- function(x, parse_files) {
     parse_files <- FALSE
   }
   
-  if (!require("magrittr", quietly = TRUE)) {
+  if (!requireNamespace("magrittr", quietly = TRUE)) {
     stop("magrittr needed for this function to work. Please install it.",
          call. = FALSE)
   }
   
-  if (!require("xml2", quietly = TRUE)) {
+  if (!requireNamespace("xml2", quietly = TRUE)) {
     stop("xml2 needed for this function to work. Please install it.",
          call. = FALSE)
   }
@@ -72,11 +72,11 @@ geocode_cadastral <- function(x, parse_files) {
   }
   
   try(
-    coords <- read_xml(con) %>%
+    coords <- xml2::read_xml(con) %>%
     sub("kml xmlns", "kml xmlns:X", .) %>%
-    as_xml_document() %>%
-    xml_find_all("//Point/coordinates") %>%
-    xml_text() %>%
+    xml2::as_xml_document() %>%
+    xml2::xml_find_all("//Point/coordinates") %>%
+    xml2::xml_text() %>%
     gsub('.{2}$', '', .),
     silent = TRUE)
   
