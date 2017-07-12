@@ -8,9 +8,14 @@ Author: person( "Jose Manuel","Vera Oteo", email = "vera.josemanuel@gmail.com",
 URL: https://github.com/verajosemanuel
 BugReports: https://github.com/verajosemanuel/ESmisc
 Maintainer: <vera.josemanuel@gmail.com>
-Depends: R (>= 3.1.0)
-Imports: magrittr
-Description: Character (words) to numerical translation in Euros from spanish 
+Depends: 
+    R (>= 3.1.0),
+    magrittr,
+    xml2
+Imports: 
+    magrittr,
+    xml2
+Description: Character (words) to numerical translation in Euros from spanish
     spelled monetary quantities. Text must be previously cleaned & removed 
     extraneous words, symbols or cents. Quantities MUST be written in a correct 
     Spanish (this is not a grammar tool). The upper limit is up to the millions 

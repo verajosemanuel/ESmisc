@@ -71,7 +71,7 @@ geocode_cadastral <- function(x, parse_files) {
 
   }
 
-  coords <- read_xml(con) %>%
+  coords <- xml2::read_xml(con) %>%
     sub("kml xmlns", "kml xmlns:X", .) %>%
     as_xml_document() %>%
     xml_find_all("//Point/coordinates") %>%
