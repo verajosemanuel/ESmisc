@@ -2,7 +2,8 @@ Package: ESmisc
 Type: Package
 Title: Misc Functions For Spanish Data
 Version: 0.2.0
-Date: 2017-05-24
+Date: 2017-07-01
+Maintainer: Jose Manuel Vera <vera.josemanuel@gmail.com>
 Author: person( "Jose Manuel","Vera Oteo", email = "vera.josemanuel@gmail.com",
                 role = c("aut","cre")
 URL: https://github.com/verajosemanuel
