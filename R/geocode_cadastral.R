@@ -21,20 +21,20 @@
 #'
 #' ## separate previously generated "new" data into columns usign tidyr
 #' \dontrun{
-#' library(tidyr)
-#' separate(cadastral_references, new, into = c('longitude','latitude'), sep = "," )
+#' # library(tidyr)
+#' # separate(cadastral_references, new, into = c('longitude','latitude'), sep = "," )
 #'
 #' ## source is folder. A loop is needed to process each kml file ##
 #'
-#' files <- list.files("folder", full.names = T)
+#' # files <- list.files("folder", full.names = T)
 #'
-#' for (f in files) {
-#'  coords <- geocode_cadastral(f, parse_files = TRUE)
-#'  d <- as.data.frame(rbind(d , as.data.frame(coords, stringsAsFactors = F )))
-#' }
+#' # for (f in files) {
+#' #  coords <- geocode_cadastral(f, parse_files = TRUE)
+#' # d <- as.data.frame(rbind(d , as.data.frame(coords, stringsAsFactors = F )))
+#' # }
 #'
 #'# separate lat/lon into columns if you prefer using tidyr
-#' d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
+#' # d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 #'}
 
 
