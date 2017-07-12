@@ -18,10 +18,9 @@
 #'
 
 
-
 to_number <- function(x) {
 
-  if (!require("magrittr", quietly = TRUE)) {
+  if (!requireNamespace("magrittr", quietly = TRUE)) {
     stop("magrittr needed for this function to work. Please install it.",
          call. = FALSE)
   }

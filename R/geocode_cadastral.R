@@ -7,8 +7,6 @@
 #' @param parse_files bool. Default to FALSE. Set TRUE if source are KML files.
 #' @return A string for longitude/latitude if found. NA if not found.
 #' @section Warning: You may be banned if many requests in short time are made.
-#' @import magrittr
-#' @import xml2
 #' @export
 #' @examples
 #' ## source is cadastral reference number ##
@@ -39,8 +37,6 @@
 #' # d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 #'}
 
-library(xml2)
-library(magrittr)
 
 geocode_cadastral <- function(x, parse_files) {
 
@@ -48,12 +44,12 @@ geocode_cadastral <- function(x, parse_files) {
     parse_files <- FALSE
   }
 
-  if (!require("magrittr", quietly = TRUE)) {
+  if (!requireNamespace("magrittr", quietly = TRUE)) {
     stop("magrittr needed for this function to work. Please install it.",
          call. = FALSE)
   }
 
-  if (!require("xml2", quietly = TRUE)) {
+  if (!requireNamespace("xml2", quietly = TRUE)) {
     stop("xml2 needed for this function to work. Please install it.",
          call. = FALSE)
   }
@@ -73,6 +69,7 @@ geocode_cadastral <- function(x, parse_files) {
     Sys.sleep(2)
 
   }
+
 
  
   coords <- read_xml(con) %>%

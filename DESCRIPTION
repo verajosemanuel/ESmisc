@@ -8,8 +8,7 @@ Author: person( "Jose Manuel","Vera Oteo", email = "vera.josemanuel@gmail.com",
 URL: https://github.com/verajosemanuel
 BugReports: https://github.com/verajosemanuel/ESmisc
 Maintainer: <vera.josemanuel@gmail.com>
-Depends: R (>= 3.1.0)
-Imports: magrittr, xml2
+Depends: magrittr, xml2
 Description: Character sentences to numerical translation in Euros from spanish
     spelled monetary quantities. Text must be previously cleaned & removed 
     extraneous words, symbols or cents. Quantities MUST be written in a correct 
@@ -24,4 +23,4 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
-Suggests: testthat
+Suggests: testthat, tidyr
