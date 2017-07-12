@@ -1,4 +1,5 @@
-# ESmisc: R package for functions on spanish data <img src="tools/readme/logo.png" align="right" />
+# ESmisc: R package for functions on spanish data [![Build Status](https://travis-ci.org/verajosemanuel/ESmisc.svg?branch=master)](https://travis-ci.org/verajosemanuel/ESmisc)
+<img src="tools/readme/logo.png" align="right" />
 
 ### Installation: ###
 
