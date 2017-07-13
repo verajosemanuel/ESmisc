@@ -22,13 +22,13 @@ test_that("to_number returns a correct translation from string.", {
 
 
 test_that("to_number works ok with millions from string.", {
-  result <- to_number("dos millones cuatrocientos ochenta y dos mil ciento tres")
+  result <- to_number("dos millones cuatrocientos ochenta y dosmil ciento tres")
   target <- 2482103
   expect_equivalent(result, target)
 })
 
 
-test_that("to_number error message when unexpected symbols in string.", {
+test_that("to_number error message when unexpected string.", {
 
   expect_error(to_number("Esto no es un numero, ya ves."), "*unexpected input*")
 })
