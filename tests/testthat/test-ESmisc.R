@@ -3,7 +3,7 @@ context("requests")
 test_that("geocode_cadastral returns coordinates from cadastral reference.", {
   result <- geocode_cadastral("0636105UF3403N", parse_files = FALSE)
   
-  expect_match(result, "[0-9]*.[0-9]*,[0-9]*.[0-9]*")
+  expect_match(result, "[0-9]{1,2}.[0-9]*,[0-9]{1,2}.[0-9]*")
 })
 
 
@@ -20,3 +20,15 @@ test_that("to_number returns a correct translation from string.", {
   expect_equivalent(result, target)
 })
 
+
+test_that("to_number works ok with millions from string.", {
+  result <- to_number("dos millones cuatrocientos ochenta y dos mil ciento tres")
+  target <- 2482103
+  expect_equivalent(result, target)
+})
+
+
+test_that("to_number error message when unexpected symbols in string.", {
+
+  expect_error(to_number("Esto no es un numero, ya ves."), "*unexpected input*")
+})
