@@ -37,7 +37,7 @@
 #' # d <- tidyr::separate(coords, into = c("longitude","latitude"), sep = "," )
 #'}
 
-
+utils::globalVariables(".")
 
 geocode_cadastral <- function(x, parse_files) {
   

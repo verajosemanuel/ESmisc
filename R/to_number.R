@@ -17,6 +17,7 @@
 #' cantidades$var3 <- lapply(cantidades$var2, to_number)
 #'
 
+utils::globalVariables(".")
 
 to_number <- function(x) {
 
