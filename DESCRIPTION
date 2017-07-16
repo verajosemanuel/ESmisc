@@ -22,5 +22,12 @@ Description: Character vector to numerical translation in Euros from spanish
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Collate:
+    'geocode_cadastral.R'
+    'to_number.R'
+    'cadastral_references-data.R'
+    'cantidades-data.R'
+    'ESmisc.R'
+    'zzz.R'
 RoxygenNote: 6.0.1.9000
 Suggests: testthat, tidyr
