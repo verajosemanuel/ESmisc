@@ -1,3 +1,6 @@
+
+# Deprecated: disabled package due to name conflict with CRAN package. Soon new package to replace this one.
+
 # ESmisc: R package for functions on spanish data [![Build Status](https://travis-ci.org/verajosemanuel/ESmisc.svg?branch=master)](https://travis-ci.org/verajosemanuel/ESmisc)
 <img src="tools/readme/logo.png" align="right" />
 
