@@ -5,6 +5,7 @@
 
 ### Installation: ###
 
+This is a deprecated package. Please use "spanish" instead:  https://github.com/rOpenSpain/spanish
  ```
 devtools::install_github("verajosemanuel/ESmisc")
 ```
